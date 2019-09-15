@@ -1,0 +1,40 @@
+@import '../constants.scss';
+.card {
+    background-color: $light-grey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .movie-card {
+        width: 260px;
+        padding: 15px;
+        box-shadow: 3px 10px 22px -13px #000000;
+        font-size: 14px;
+        margin: 10px 10px;
+        background-color: $white;
+        cursor: pointer;
+        .name {
+            margin: 0;
+            padding: 0;
+            height: 30px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .rate {
+            margin: 0;
+            padding: 0;
+        }
+        .poster {
+            width: 250px;
+            margin-top: 5px;
+            // border-radius: 12px;
+        }
+        &:hover {
+            color: $soft-purple;
+        }
+    }
+    .movie-card:hover {
+        box-shadow: 1px 1px $soft-purple, 2px 2px $soft-purple, 3px 3px $soft-purple, 4px 4px $soft-purple, 5px 5px $soft-purple, 4px 4px $soft-purple;
+        transform: translateX(-2px);
+        transition: 0.3s;
+    }
+}
