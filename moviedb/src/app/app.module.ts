@@ -11,21 +11,54 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MovieListComponent } from './movie-list/movie-list.component';
-import { HttpClientModule,HttpClientJsonpModule } from '@angular/common/http';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { MovieService } from './services/movie.service';
-import { MovieComponent } from './movie/movie.component';
+import { TvService } from './services/tv.service';
+import { Routes, RouterModule } from '@angular/router';
+import { LibraryComponent } from './components/library/library.component';
+import { SupportComponent } from './components/support/support.component';
+import { TvShowsListComponent } from './components/tv-shows-list/tv-shows-list.component';
+import { TopOfPageComponent } from './components/top-of-page/top-of-page.component';
+import { SearchComponent } from './components/search/search.component';
+import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import { AboutComponent } from './components/about/about.component';
+import { MovieInfoComponent } from './components/movie-info/movie-info.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { TvCardComponent } from './components/tv-card/tv-card.component';
+import { TvInfoComponent } from './components/tv-info/tv-info.component';
+
+export const routes: Routes = [
+  { path: 'movies', component: MovieListComponent },
+  { path: 'movies/:id', component: MovieInfoComponent },
+  { path: 'tv', component: TvShowsListComponent },
+  { path: 'tv/:id', component: TvInfoComponent },
+  { path: 'library', component: LibraryComponent },
+  { path: 'support', component: SupportComponent },
+  { path: 'about', component: AboutComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     MovieListComponent,
-    MovieComponent
+    LibraryComponent,
+    SupportComponent,
+    TvShowsListComponent,
+    TopOfPageComponent,
+    SearchComponent,
+    AddMovieComponent,
+    AboutComponent,
+    MovieInfoComponent,
+    MovieCardComponent,
+    TvCardComponent,
+    TvInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
@@ -36,7 +69,7 @@ import { MovieComponent } from './movie/movie.component';
     HttpClientModule,
     HttpClientJsonpModule
   ],
-  providers: [MovieService],
+  providers: [MovieService, TvService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

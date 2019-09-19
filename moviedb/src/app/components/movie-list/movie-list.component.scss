@@ -1,0 +1,7 @@
+@import '../../constants.scss';
+.cards {
+    background-color: $light-grey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

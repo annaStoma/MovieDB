@@ -1,0 +1,8 @@
+<a [routerLink]="['/tv', tv.id]">
+    <div class="movie-card">
+        <!-- <p class="name"><span>Порядковый номер:</span> {{i+1}} </p> -->
+        <p class="name">{{tv.original_name}} </p>
+        <p class="rate">{{tv.vote_average}} </p>
+        <img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{tv.poster_path}}" alt="{{tv.title}}">
+    </div>
+</a>

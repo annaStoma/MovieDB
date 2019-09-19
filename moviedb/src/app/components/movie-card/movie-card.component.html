@@ -1,0 +1,8 @@
+<a [routerLink]="['/movies', movie.id]">
+    <div class="movie-card">
+        <p class="name">{{movie.original_title}}</p>
+        <p class="rate">{{movie.vote_average}}</p>
+        <img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}" alt="{{movie.title}}">
+    </div>
+    <!-- <app-movie-info [currMovie]="movie"></app-movie-info> -->
+</a>

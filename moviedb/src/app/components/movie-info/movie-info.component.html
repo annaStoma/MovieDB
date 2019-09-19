@@ -1,0 +1,7 @@
+<!-- <div><span>id: </span><span>{{id}}</span></div> -->
+<!-- <div><span>vote_average: </span><span>{{movie.vote_average}}</span></div> -->
+<div><span>id: </span><span>{{id}}</span></div>
+<div *ngIf="currentMovie">
+    <div><span>id: </span><span>{{currentMovie.id}}</span></div>
+    <div><span>title: </span>{{currentMovie.original_title}}</div>
+</div>

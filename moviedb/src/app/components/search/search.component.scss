@@ -1,0 +1,36 @@
+@import '../../constants.scss';
+input {
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    width: 400px;
+    background-color: transparent;
+    font-size: 20px;
+    outline: none;
+    color: $white;
+    border: 1px solid $white;
+    border: 0;
+    border-bottom: 1px solid $white;
+    &::placeholder {
+      opacity: 0.5;
+        color: $light-purple;
+    }
+    &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        background: url(https://img.icons8.com/ios/50/000000/close-window.png) center no-repeat;
+    }
+}
+
+.search-icon {
+    position: fixed;
+    display: inline-block;
+    border: 0;
+    height: 50px;
+    width: 50px;
+    background: transparent;
+    background: url(https://png.icons8.com/search) no-repeat center;
+    cursor: pointer;
+    outline: none;
+}
