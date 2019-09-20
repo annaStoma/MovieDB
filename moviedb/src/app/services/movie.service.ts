@@ -18,8 +18,5 @@ export class MovieService {
     return this.getQuery(links.popular).pipe(map((data: any) => data.results));
   }
 
-  getTVShows() {
-    return this.getQuery(links.tv).pipe(map((data: any) => data.results));
-  }
 }
 

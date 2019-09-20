@@ -1,6 +1,6 @@
+<app-top-of-page></app-top-of-page>
 <div class="cards">
     <div *ngFor="let movie of movieList, let i=index">
-        <movie-card [movie]="movie"></movie-card>
-        <app-movie-info [currentMovie]="movie"></app-movie-info>
+        <movie-card [movie]="movie" (click)="getMovieInfo(movie.id)"></movie-card>
     </div>
 </div>

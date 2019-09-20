@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
+
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -8,9 +10,8 @@ import { MovieService } from '../../services/movie.service';
 export class MovieListComponent {
 
   movieList: any[] = [];
-  loading: boolean;
-  constructor(private moviebd: MovieService) {
-
+  loading: boolean = true;
+  constructor(private moviebd: MovieService, private router: Router) {
   }
   ngOnInit() {
     this.loadPopularMovies();
@@ -21,7 +22,15 @@ export class MovieListComponent {
       this.movieList = data;
       this.loading = false;
       console.log(this.movieList);
-      return this.movieList;
     });
   }
+
+  getMovieInfo(id: string) {
+    this.router.navigate(['/movies', id]);
+    for (const index in this.movieList) {
+      if (this.movieList[index].id === id)
+      localStorage.setItem(this.movieList[index].id, JSON.stringify(this.movieList[index]))
+    }
+  }
+
 }
