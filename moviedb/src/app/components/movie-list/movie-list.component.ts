@@ -9,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class MovieListComponent {
 
-  movieList: any[] = [];
-  loading: boolean = true;
-  constructor(private moviebd: MovieService, private router: Router) {
-  }
+  public movieList: any[] = [];
+  public loading: boolean = true;
+  constructor(private moviebd: MovieService, private router: Router) { }
+
   ngOnInit() {
     this.loadPopularMovies();
   }
+
   public loadPopularMovies() {
     this.loading = true;
     this.moviebd.getPopularMovies().subscribe((data: any) => {
@@ -29,7 +30,7 @@ export class MovieListComponent {
     this.router.navigate(['/movies', id]);
     for (const index in this.movieList) {
       if (this.movieList[index].id === id)
-      localStorage.setItem(this.movieList[index].id, JSON.stringify(this.movieList[index]))
+      sessionStorage.setItem(this.movieList[index].id, JSON.stringify(this.movieList[index]));
     }
   }
 

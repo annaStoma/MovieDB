@@ -1,0 +1,15 @@
+@import '../../constants.scss';
+@import '../movie-info/movie-info.component.scss';
+
+.movies {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.center {
+    // height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

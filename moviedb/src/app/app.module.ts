@@ -27,6 +27,7 @@ import { MovieInfoComponent } from './components/movie-info/movie-info.component
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { TvCardComponent } from './components/tv-card/tv-card.component';
 import { TvInfoComponent } from './components/tv-info/tv-info.component';
+import { SearchService } from './services/search.service';
 
 export const routes: Routes = [
   { path: 'movies', component: MovieListComponent },
@@ -69,7 +70,7 @@ export const routes: Routes = [
     HttpClientModule,
     HttpClientJsonpModule
   ],
-  providers: [MovieService, TvService],
+  providers: [MovieService, TvService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

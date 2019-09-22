@@ -2,11 +2,13 @@
     <div class="movie-info">
         <img class="movie-poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}" alt="{{movie.title}}">
         <div class="movie-description">
-            <!-- <span>id: </span><span>{{id}}</span> -->
             <div class="title">{{movie.original_title}}</div>
             <div class="date">{{movie.release_date}}</div>
             <div class="overview">{{movie.overview}}</div>
-            <div class="overview">{{movie.genre_ids}}</div>
         </div>
+    </div>
+    <input id="1" type="button" (click)="addToLibrary($event)" class="button button1" [value]="valueButton">
+    <div>
+        <p class="suggested">You may also like these movies :) </p>
     </div>
 </div>
