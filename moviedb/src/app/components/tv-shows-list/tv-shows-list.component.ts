@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TvService } from 'src/app/services/tv.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,8 +11,8 @@ import { TvService } from 'src/app/services/tv.service';
 export class TvShowsListComponent {
 
   public tvList: any[] = [];
-  private loading: boolean;
-  constructor(private tvbd: TvService) {
+  public loading: boolean = true;
+  constructor(private tvbd: TvService, private router: Router) {
 
   }
   ngOnInit() {
@@ -26,6 +27,14 @@ export class TvShowsListComponent {
       return this.tvList;
     });
 
+  }
+
+  getTvInfo(id: string) {
+    this.router.navigate(['/tv', id]);
+    for (const index in this.tvList) {
+      if (this.tvList[index].id === id)
+      sessionStorage.setItem(this.tvList[index].id, JSON.stringify(this.tvList[index]));
+    }
   }
 
 }

@@ -1,6 +1,6 @@
 <app-top-of-page></app-top-of-page>
 <div class="cards">
     <div *ngFor="let tv of tvList">
-        <app-tv-card [tv]="tv"></app-tv-card>
+        <app-tv-card [tv]="tv" (click)="getTvInfo(tv.id)" [id]="tv.id"></app-tv-card>
     </div>
 </div>
