@@ -11,28 +11,31 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
 export class MovieInfoComponent implements OnInit {
 
   @Input() id: string;
-  isAddToLibrary: Boolean = true;
+  // isAddToLibrary: Boolean = true;
   public movie: {} = {};
   public thisMovie: {};
-  valueButton: string;
+  valueButton: string =  "add this movie to library";
+  isAdded: boolean  = false;
+
   constructor(private activateRoute: ActivatedRoute) {
     this.id = activateRoute.snapshot.params['id'];
   }
-// !!!!!!! добавить все строчки в переменные
+  // !!!!!!! добавить все строчки в переменные
   ngOnInit(): void {
     this.movie = JSON.parse(sessionStorage.getItem(this.id));
-    this.valueButton = "add this movie to library";
     this.buttonState();
   }
 
-  addToLibrary(event) {
-    this.isAddToLibrary = !this.isAddToLibrary;
-    if (!this.isAddToLibrary) {
-      event.target.value = "remove this movie from library";
-      localStorage.setItem(this.id, JSON.stringify(this.movie));
-    }
-    else {
-      event.target.value = "add this movie to library";
+  addToLibrary() {   
+    localStorage.setItem(this.id, JSON.stringify(this.movie));
+  }
+
+  removeFromLibrary() {
+    for (let i = 0; i <= localStorage.length - 1; i++) {
+      this.thisMovie = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      if (localStorage.getItem(this.id) == JSON.stringify(this.thisMovie)) {
+        localStorage.removeItem(this.id);
+      }
     }
   }
 
@@ -43,5 +46,18 @@ export class MovieInfoComponent implements OnInit {
         this.valueButton = 'remove this movie from library';
       }
     }
+  }
+
+  choose() {
+    if (this.isAdded) {
+      this.removeFromLibrary();
+      this.valueButton = "add this movie to library";
+      this.isAdded = !this.isAdded;
+    }
+    else if (!this.isAdded) {
+      this.addToLibrary();
+        this.valueButton = 'remove this movie from library';
+        this.isAdded = !this.isAdded;
+      }
   }
 }

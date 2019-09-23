@@ -3,11 +3,11 @@
         <img class="movie-poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{tv.poster_path}}">
         <div class="movie-description">
             <div class="title">{{tv.original_name}}</div>
-            <div class="date">{{tv.vote_average}}</div>
+            <div class="date">{{tv.first_air_date}}</div>
             <div class="overview">{{tv.overview}}</div>
         </div>
     </div>
-    <input id="1" type="button" (click)="addToLibrary($event)" class="button button1" [value]="valueButton">
+    <input id="1" type="button" (click)="choose()" class="button button1" [value]="valueButton">
     <div>
         <p class="suggested">You may also like these tvs :) </p>
     </div>

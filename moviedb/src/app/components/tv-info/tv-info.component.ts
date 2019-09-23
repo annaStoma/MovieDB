@@ -7,30 +7,32 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./tv-info.component.scss']
 })
 export class TvInfoComponent implements OnInit {
-
+  
   @Input() id: string;
   isAddToLibrary: Boolean = true;
   public tv: {} = {};
   public thisTv: {};
-  valueButton: string;
+  valueButton: string =  "add this movie to library";
+  isAdded: boolean = false;
+
   constructor(private activateRoute: ActivatedRoute) {
     this.id = activateRoute.snapshot.params['id'];
   }
-// !!!!!!! добавить все строчки в переменные
   ngOnInit(): void {
     this.tv = JSON.parse(sessionStorage.getItem(this.id));
-    this.valueButton = "add this tv to library";
     this.buttonState();
   }
 
-  addToLibrary() {
-    this.isAddToLibrary = !this.isAddToLibrary;
-    if (!this.isAddToLibrary) {
-      this.valueButton = 'remove this tv from library';
-      localStorage.setItem(this.id, JSON.stringify(this.tv));
-    }
-    else {
-      this.valueButton = 'remove this tv from library';
+  addToLibrary() {   
+    localStorage.setItem(this.id, JSON.stringify(this.tv));
+  }
+
+  removeFromLibrary() {
+    for (let i = 0; i <= localStorage.length - 1; i++) {
+      this.thisTv = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      if (localStorage.getItem(this.id) == JSON.stringify(this.thisTv)) {
+        localStorage.removeItem(this.id);
+      }
     }
   }
 
@@ -38,9 +40,22 @@ export class TvInfoComponent implements OnInit {
     for (let i = 0; i <= localStorage.length - 1; i++) {
       this.thisTv = JSON.parse(localStorage.getItem(localStorage.key(i)));
       if (localStorage.getItem(this.id) == JSON.stringify(this.thisTv)) {
-        this.valueButton = 'remove this tv from library';
+        this.valueButton = 'remove this movie from library';
       }
     }
   }
-  
+
+  choose() {
+    if (this.isAdded) {
+      this.removeFromLibrary();
+      this.valueButton = "add this movie to library";
+      this.isAdded = !this.isAdded;
+    }
+    else if (!this.isAdded) {
+      this.addToLibrary();
+        this.valueButton = 'remove this movie from library';
+        this.isAdded = !this.isAdded;
+
+      }
+  }
 }

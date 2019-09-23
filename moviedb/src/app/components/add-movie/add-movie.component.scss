@@ -1,0 +1,41 @@
+@import '../movie-info/movie-info.component.scss';
+@import '../../constants.scss';
+
+.form {
+    width: 60%;
+    height: 80%;
+    background-color: $dark-grey;
+    border-radius: 10px;
+    padding: 0% 5%;
+    color: $white;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: $light-purple;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+        text-align: center;
+    }
+    input[type="text"] {
+        text-transform: uppercase;
+        color: $white;
+        margin-top: 30px;
+        box-sizing: border-box;
+        letter-spacing: 1px;
+        outline: none;
+        border: none;
+        background: none;
+        border-bottom: solid 2px $light-grey;
+        transition: 0.5s;
+        cursor: pointer;
+        &:hover {
+            transition: 0.5s;
+            border-bottom: solid 2px $light-purple;
+        }
+    }
+    .button {
+        margin-top: 30px;
+    }
+}

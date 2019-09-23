@@ -20,7 +20,7 @@ export class MovieListComponent {
   public loadPopularMovies() {
     this.loading = true;
     this.moviebd.getPopularMovies().subscribe((data: any) => {
-      this.movieList = data;
+      this.movieList = Object.assign(this.movieList, data, this.moviebd.myMovies);
       this.loading = false;
       console.log(this.movieList);
     });
@@ -30,7 +30,7 @@ export class MovieListComponent {
     this.router.navigate(['/movies', id]);
     for (const index in this.movieList) {
       if (this.movieList[index].id === id)
-      sessionStorage.setItem(this.movieList[index].id, JSON.stringify(this.movieList[index]));
+        sessionStorage.setItem(this.movieList[index].id, JSON.stringify(this.movieList[index]));
     }
   }
 

@@ -8,6 +8,8 @@ import { links } from '../../environments/environment';
 })
 export class MovieService {
 
+  myMovies: any[] = [];
+
   constructor(private httpClient: HttpClient) { }
   getQuery(query: string) {
     const url = `https://api.themoviedb.org/3${query}&api_key=${links.apikey + links.params}`;
@@ -16,6 +18,10 @@ export class MovieService {
 
   getPopularMovies() {
     return this.getQuery(links.popular).pipe(map((data: any) => data.results));
+  }
+
+  addNewMovie(movie){
+this.myMovies.push(movie);
   }
 
 }

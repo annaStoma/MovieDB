@@ -1,1 +1,38 @@
-<p>add-movie works!</p>
+<div [formGroup]="movie" class="form">
+  
+  <p>fill in all fields to add a movie</p>
+
+        <input id="original_title"
+        type="text"
+        formControlName="original_title"
+        placeholder="Title"
+        required >
+
+        <input id="overview"
+        type="text"
+        formControlName="overview"
+        placeholder="About movie"
+        required >
+
+        <input id="poster_path"
+        type="text"
+        formControlName="poster_path"
+        placeholder="Poster"
+        required >
+    
+        <input id="release_date"
+        type="text"
+        formControlName="release_date"
+        placeholder="Release date"
+        required >
+ 
+        <input id="vote_average"
+        type="text"
+        formControlName="vote_average"
+        placeholder="Votes"
+        required >
+    
+    <button type="submit" 
+    class="button button1"
+    (click)="onSubmit(movie.value)">Add movie:</button>
+</div>

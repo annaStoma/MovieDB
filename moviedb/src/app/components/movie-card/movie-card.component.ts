@@ -7,12 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 
 export class MovieCardComponent implements OnInit {
-  
+
   @Input() public movie: any[] = [];
 
   constructor() { }
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  }
+}
 

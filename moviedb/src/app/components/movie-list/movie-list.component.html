@@ -1,4 +1,4 @@
-<app-top-of-page></app-top-of-page>
+<!-- <app-top-of-page></app-top-of-page> -->
 <div class="cards">
     <div *ngFor="let movie of movieList, let i=index">
         <movie-card [movie]="movie" (click)="getMovieInfo(movie.id)" [id]="movie.id"></movie-card>
