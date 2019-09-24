@@ -11,7 +11,7 @@ export class TvService {
   constructor(private httpClient: HttpClient) { }
   getQuery(query: string) {
     const url = `https://api.themoviedb.org/3${query}&api_key=${links.apikey + links.params}`;
-    return this.httpClient.jsonp(url, "");
+    return this.httpClient.get(url);
   }
 
   getTVShows() {

@@ -1,5 +1,6 @@
 <div class="movie-card">
     <p class="name">{{movie.name || movie.original_title}}</p>
     <p class="rate">{{movie.vote_average}}</p>
-    <img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}" alt="{{movie.title}}">
+    <img *ngIf="movie.isAddedByUser" class="poster" src="{{movie.poster_path}}">
+    <img  *ngIf="!movie.isAddedByUser" class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}">
 </div>

@@ -5,4 +5,5 @@ export interface Movie{
   poster_path: string;
   release_date: Date;
   vote_average: number;
+  isAddedByUser: boolean;
  }

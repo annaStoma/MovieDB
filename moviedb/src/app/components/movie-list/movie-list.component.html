@@ -1,6 +1,11 @@
 <!-- <app-top-of-page></app-top-of-page> -->
-<div class="cards">
+<input type="search" [(ngModel)]="searchValue">
+<button (click)="searchMovie()">search movie</button>
+<div class="cards" *ngIf="movieList">
+
     <div *ngFor="let movie of movieList, let i=index">
         <movie-card [movie]="movie" (click)="getMovieInfo(movie.id)" [id]="movie.id"></movie-card>
+        <app-search [movieList]="movieList" hidden></app-search>
+
     </div>
 </div>

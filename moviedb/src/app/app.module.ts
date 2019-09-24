@@ -27,8 +27,8 @@ import { MovieInfoComponent } from './components/movie-info/movie-info.component
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { TvCardComponent } from './components/tv-card/tv-card.component';
 import { TvInfoComponent } from './components/tv-info/tv-info.component';
-import { SearchService } from './services/search.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorComponent } from './components/error/error.component';
 
 export const routes: Routes = [
   { path: 'movies', component: MovieListComponent },
@@ -39,6 +39,7 @@ export const routes: Routes = [
   { path: 'support', component: SupportComponent },
   { path: 'about', component: AboutComponent },
   { path: 'add', component: AddMovieComponent },
+  { path: 'error', component: ErrorComponent },
 ];
 
 @NgModule({
@@ -56,7 +57,8 @@ export const routes: Routes = [
     MovieInfoComponent,
     MovieCardComponent,
     TvCardComponent,
-    TvInfoComponent
+    TvInfoComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,7 @@ export const routes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [MovieService, TvService, SearchService],
+  providers: [MovieService, TvService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,2 +1,5 @@
-<input type="search" placeholder="search ...">
-<button class="search-icon"></button>
+<input type="search" placeholder="search ..." [(ngModel)]="searchValue">
+
+<button class="search-icon" (click)="searchMovie()"></button>
+
+<!-- <app-movie-list [movieList]="movieList2" hidden></app-movie-list> -->

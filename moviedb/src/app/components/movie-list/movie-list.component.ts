@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 
 import { Router } from '@angular/router';
@@ -10,20 +10,23 @@ import { Router } from '@angular/router';
 export class MovieListComponent {
 
   public movieList: any[] = [];
-  public loading: boolean = true;
+  searchValue: string;
   constructor(private moviebd: MovieService, private router: Router) { }
 
   ngOnInit() {
     this.loadPopularMovies();
   }
 
+
   public loadPopularMovies() {
-    this.loading = true;
-    this.moviebd.getPopularMovies().subscribe((data: any) => {
-      this.movieList = Object.assign(this.movieList, data, this.moviebd.myMovies);
-      this.loading = false;
-      console.log(this.movieList);
-    });
+    try {
+      this.moviebd.getPopularMovies().subscribe((data: any) => {
+        this.movieList = Object.assign(this.movieList, data, this.moviebd.myMovies);
+      });
+    }
+    catch{
+      this.router.navigate(['/error']);
+    }
   }
 
   getMovieInfo(id: string) {

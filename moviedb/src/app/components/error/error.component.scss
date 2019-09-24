@@ -1,0 +1,28 @@
+@import '../../constants.scss';
+.error-page {
+    background-color: $white;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-transform: uppercase;
+    padding: 0;
+    width: 60%;
+    height: 80%;
+    border-radius: 10px;
+    .oops {
+        font-size: 4rem;
+        color: $light-purple;
+        font-style: italic;
+        margin: 0;
+        padding: 0;
+    }
+    .text {
+        color: $dark-grey;
+    }
+    img {
+        width: 30%;
+        margin: 0 auto;
+    }
+}
