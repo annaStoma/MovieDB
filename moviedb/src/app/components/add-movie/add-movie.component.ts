@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MovieService } from 'src/app/services/movie.service';
+import * as randId from 'uuid/v4';
 
 @Component({
   selector: 'app-add-movie',
@@ -13,11 +14,11 @@ export class AddMovieComponent implements OnInit {
   movieObj: Object = {};
   constructor(private fb: FormBuilder, private moviebd: MovieService) { }
 
-  randId = require('uuid/v4');
+  
 
   ngOnInit() {
     this.movie = this.fb.group({
-      id: this.randId(),
+      id: randId(),
       original_title: '',
       overview: '',
       poster_path: '',

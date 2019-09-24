@@ -9,25 +9,16 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class SearchComponent implements OnInit {
 
-  @Input() movieList: any[];
-  movieList2: any[];
-  searchValue: string;
+  searchValue: string = '';
 
   constructor(private moviebd: MovieService) {
-    // console.log(this.movieList);
-   }
+  }
 
   ngOnInit() {
   }
 
   searchMovie() {
-    console.log(this.searchValue);
-    this.moviebd.search(this.searchValue).subscribe((data: any) => {
-      this.movieList = data;
-      this.movieList2 =  this.movieList;
-      console.log(this.movieList);
-    });
-
+    this.moviebd.search(this.searchValue);
   }
-  
+
 }

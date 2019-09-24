@@ -10,23 +10,16 @@ import { Router } from '@angular/router';
 export class MovieListComponent {
 
   public movieList: any[] = [];
-  searchValue: string;
   constructor(private moviebd: MovieService, private router: Router) { }
 
   ngOnInit() {
     this.loadPopularMovies();
+    
   }
 
-
   public loadPopularMovies() {
-    try {
-      this.moviebd.getPopularMovies().subscribe((data: any) => {
-        this.movieList = Object.assign(this.movieList, data, this.moviebd.myMovies);
-      });
-    }
-    catch{
-      this.router.navigate(['/error']);
-    }
+    this.moviebd.getPopularMovies();
+    this.movieList = this.moviebd.movieList;
   }
 
   getMovieInfo(id: string) {
