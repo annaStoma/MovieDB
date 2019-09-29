@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MovieService } from 'src/app/services/movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -10,15 +11,20 @@ import { MovieService } from 'src/app/services/movie.service';
 export class SearchComponent implements OnInit {
 
   searchValue: string = '';
-
-  constructor(private moviebd: MovieService) {
-  }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   searchMovie() {
-    this.moviebd.search(this.searchValue);
+    if (this.router.url === '/movies') {
+      this.router.navigate(['/movies/search', this.searchValue]);
+    }
+    else if (this.router.url === '/tv') {
+      this.router.navigate(['/tv/search', this.searchValue]);
+    }
+
+    this.searchValue = '';
   }
 
 }

@@ -26,7 +26,7 @@ export class MovieInfoComponent implements OnInit {
     this.buttonState();
   }
 
-  addToLibrary() {   
+  addToLibrary() {
     localStorage.setItem(this.id, JSON.stringify(this.movie));
   }
 

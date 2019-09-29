@@ -1,6 +1,6 @@
 <div *ngIf="id">
     <div class="movie-info">
-        <img *ngIf="movie.isAddedByUser" class="movie-poster" src="{{movie.poster_path}}">
+        <!-- <img *ngIf="movie.isAddedByUser" class="movie-poster" src="{{movie.poster_path}}"> -->
         <img *ngIf="!movie.isAddedByUser" class="movie-poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}">
         <div class="movie-description">
             <div class="title">{{movie.original_title || movie.name}}</div>

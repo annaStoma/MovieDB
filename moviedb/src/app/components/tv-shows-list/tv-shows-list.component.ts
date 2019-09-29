@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class TvShowsListComponent {
 
   public tvList: any[] = [];
-  public loading: boolean = true;
   constructor(private tvbd: TvService, private router: Router) {
 
   }
@@ -19,14 +18,8 @@ export class TvShowsListComponent {
     this.LoadTVs();
   }
   public LoadTVs() {
-    this.loading = true;
-    this.tvbd.getTVShows().subscribe((data: any) => {
-      this.tvList = data;
-      this.loading = false;
-      console.log(this.tvList);
-      return this.tvList;
-    });
-
+    this.tvbd.getTVShows();
+    this.tvList = this.tvbd.tvList;
   }
 
   getTvInfo(id: string) {

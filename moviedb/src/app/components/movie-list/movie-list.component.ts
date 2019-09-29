@@ -14,7 +14,6 @@ export class MovieListComponent {
 
   ngOnInit() {
     this.loadPopularMovies();
-    
   }
 
   public loadPopularMovies() {
@@ -29,5 +28,4 @@ export class MovieListComponent {
         sessionStorage.setItem(this.movieList[index].id, JSON.stringify(this.movieList[index]));
     }
   }
-
 }

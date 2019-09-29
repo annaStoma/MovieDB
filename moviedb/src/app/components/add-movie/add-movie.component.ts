@@ -9,7 +9,7 @@ import * as randId from 'uuid/v4';
   styleUrls: ['./add-movie.component.scss']
 })
 export class AddMovieComponent implements OnInit {
- require: any;
+ require: any; // smt strange
   movie: FormGroup;
   movieObj: Object = {};
   constructor(private fb: FormBuilder, private moviebd: MovieService) { }
@@ -24,7 +24,7 @@ export class AddMovieComponent implements OnInit {
       poster_path: '',
       release_date: '',
       vote_average: '',
-      isAddedByUser: true
+      isAddedByUser: true,
     });
   }
 

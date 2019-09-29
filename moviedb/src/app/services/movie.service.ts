@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { links } from '../../environments/environment';
 
 @Injectable({
   providedIn: "root"
 })
 export class MovieService {
-  value: string;
-  public movieList: any[];
 
+  public movieList: any[];
   myMovies: any[] = [];
+  public searchedMovieList: any[] = [];
+  title: string;
+  value: string;
 
   constructor(private httpClient: HttpClient) {
     this.movieList = [];
@@ -27,22 +28,23 @@ export class MovieService {
       });
   }
 
-  addNewMovie(movie) {
-    this.myMovies.push(movie);
-  }
-
-  getQuerySearch(query: string) {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${links.apikey + links.searchParams}
-    &query=${query}&page=1&include_adult=false`;
-    return this.httpClient.get(url);
-  }
-
   search(value: string) {
-    this.getQuerySearch(value)
+    this.searchedMovieList = [];
+    this.getQueryMovie(links.popular)
       .subscribe((data: any) => {
         this.movieList = data.results;
-        console.log(this.movieList);
+        this.movieList.forEach((movie) => {
+          const customRegExp = new RegExp(value, 'gi');
+          if (movie.original_title.match(customRegExp)) {
+            this.searchedMovieList.push(movie);
+          }
+        });
       });
+    return this.searchedMovieList;
+  }
+
+  addNewMovie(movie) {
+    this.myMovies.push(movie);
   }
 }
 
