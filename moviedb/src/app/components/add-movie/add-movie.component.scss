@@ -1,13 +1,12 @@
 @import '../movie-info/movie-info.component.scss';
 @import '../../constants.scss';
-
 .form {
     width: 60%;
     height: 80%;
     background-color: $dark-grey;
     border-radius: 10px;
     padding: 0% 5%;
-    color: $white;
+    color: $lilac;
     font-size: 20px;
     text-transform: uppercase;
     color: $light-purple;
@@ -18,9 +17,9 @@
     p {
         text-align: center;
     }
-    input{
+    input {
         text-transform: uppercase;
-        color: $white;
+        color: $lilac;
         margin-top: 30px;
         box-sizing: border-box;
         letter-spacing: 1px;

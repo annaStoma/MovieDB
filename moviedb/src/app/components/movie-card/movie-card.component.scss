@@ -5,7 +5,8 @@
     box-shadow: 3px 10px 22px -13px #000000;
     font-size: 14px;
     margin: 10px 10px;
-    background-color: $white;
+    border-radius: 10px;
+    background-color: $lilac;
     cursor: pointer;
     .name {
         margin: 0;
@@ -15,12 +16,14 @@
         font-weight: bold;
     }
     .rate {
-        margin: 0;
+        margin-top: 10px;
         padding: 0;
     }
     .poster {
+        border-radius: 10px;
         width: 250px;
         margin-top: 5px;
+        margin-left: 5px;
     }
     &:hover {
         color: $soft-purple;

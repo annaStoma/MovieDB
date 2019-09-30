@@ -17,25 +17,26 @@
     z-index: 1;
 }
 
-.mat-toolbar.mat-primary {
-    background-color: $dark-grey;
-}
+// .mat-toolbar.mat-primary {
+//     background-color: $dark-grey;
+// }
 
 .mat-drawer {
     background-color: $dark-grey;
 }
 
 .mat-nav-list .mat-list-item {
-    color: $white;
-}
+    color: $lilac;
 
-.mat-nav-list .mat-list-item:hover {
-    color: $light-purple;
+    &:hover {
+        transition: 0.3s;
+        text-shadow: 0px 0px 10px $lilac;
+    }
 }
 
 .mat-toolbar-row,
 .mat-toolbar-single-row {
-    color: $white;
+    color: $lilac;
 }
 
 .mat-drawer-container {

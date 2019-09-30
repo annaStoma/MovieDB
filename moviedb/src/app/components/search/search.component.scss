@@ -1,36 +1,45 @@
 @import '../../constants.scss';
-input {
-    margin: 0;
-    padding: 0;
-    height: 50px;
-    width: 400px;
-    background-color: transparent;
-    font-size: 20px;
-    outline: none;
-    color: $white;
-    border: 1px solid $white;
-    border: 0;
-    border-bottom: 1px solid $white;
-    &::placeholder {
-      opacity: 0.5;
-        color: $light-purple;
-    }
-    &::-webkit-search-cancel-button {
-        -webkit-appearance: none;
-        width: 30px;
+div {
+    position: absolute;
+    width: 30%;
+    input {
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
         height: 30px;
-        background: url(https://img.icons8.com/ios/50/000000/close-window.png) center no-repeat;
+        width: 80%;
+        background-color: transparent;
+        font-size: 12px;
+        outline: none;
+        color: $lilac;
+        border: 1px solid $lilac;
+        border: 0;
+        border-bottom: 1px solid $lilac;
+        &::placeholder {
+            opacity: 0.5;
+            color: $light-purple;
+            text-shadow: none;
+        }
+        &::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background: url('../../../assets/images/close-icon.png') center no-repeat;
+            background-size: cover;
+            cursor: pointer;
+        }
     }
-}
-
-.search-icon {
-    margin-top: -10px;
-    display: inline-block;
-    border: 0;
-    height: 50px;
-    width: 50px;
-    background: transparent;
-    background: url(https://png.icons8.com/search) no-repeat center;
-    cursor: pointer;
-    outline: none;
+    .search-icon {
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        color: $lilac;
+        transition: 0.1s;
+        &:hover {
+            transition: 0.3s;
+            color: $lilac;
+            text-shadow: 0px 0px 15px $lilac;
+        }
+    }
 }
