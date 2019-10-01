@@ -11,7 +11,7 @@ export class TvInfoComponent implements OnInit {
   
   @Input() id: string;
   isAddToLibrary: Boolean = true;
-  public tv: {} = {}; // try to rethink this solution
+  public tv: Tv; // try to rethink this solution
   public thisTv: Tv;
   valueButton: string =  "add this movie to library";
   isAdded: boolean = false;

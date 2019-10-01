@@ -10,8 +10,8 @@ import { Movie } from 'src/app/models';
 })
 export class MovieListComponent {
 
-  public movieList: any[] = [];
-  constructor(private moviebd: MovieService, private router: Router) { }
+  public movieList: any[] = []; 
+   constructor(private moviebd: MovieService, private router: Router) { }
 
   ngOnInit() {
     this.loadPopularMovies();
@@ -22,7 +22,7 @@ export class MovieListComponent {
     this.movieList = this.moviebd.movieList;
   }
 
-  getMovieInfo(id: string) {
+  setMovieInfo(id: string) {
     this.router.navigate(['/movies', id]);
     for (const index in this.movieList) {
       if (this.movieList[index].id === id)

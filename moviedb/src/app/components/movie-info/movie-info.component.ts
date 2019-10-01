@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MovieListComponent } from '../movie-list/movie-list.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { Movie } from 'src/app/models';
 
 @Component({
   selector: 'app-movie-info',
@@ -11,16 +10,18 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
 export class MovieInfoComponent implements OnInit {
 
   @Input() id: string;
-  // isAddToLibrary: Boolean = true;
-  public movie: {} = {};
+  public movie: Movie;
   public thisMovie: {};
-  valueButton: string =  "add this movie to library";
+  valueButtonAdd : string = "add this movie to library";
+  valueButtonRemove : string = "remove this movie from library";
+  valueButton: string =  this.valueButtonAdd;
+
   isAdded: boolean  = false;
 
   constructor(private activateRoute: ActivatedRoute) {
     this.id = activateRoute.snapshot.params['id'];
   }
-  // !!!!!!! добавить все строчки в переменные
+
   ngOnInit(): void {
     this.movie = JSON.parse(sessionStorage.getItem(this.id));
     this.buttonState();
@@ -43,7 +44,7 @@ export class MovieInfoComponent implements OnInit {
     for (let i = 0; i <= localStorage.length - 1; i++) {
       this.thisMovie = JSON.parse(localStorage.getItem(localStorage.key(i)));
       if (localStorage.getItem(this.id) == JSON.stringify(this.thisMovie)) {
-        this.valueButton = 'remove this movie from library';
+        this.valueButton = this.valueButtonRemove;
       }
     }
   }
@@ -51,12 +52,12 @@ export class MovieInfoComponent implements OnInit {
   choose() {
     if (this.isAdded) {
       this.removeFromLibrary();
-      this.valueButton = "add this movie to library";
+      this.valueButton = this.valueButtonAdd;
       this.isAdded = !this.isAdded;
     }
     else if (!this.isAdded) {
       this.addToLibrary();
-        this.valueButton = 'remove this movie from library';
+        this.valueButton = this.valueButtonRemove;
         this.isAdded = !this.isAdded;
       }
   }

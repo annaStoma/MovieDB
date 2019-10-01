@@ -1,5 +1,5 @@
 export interface NewMovie{
-  getRawValue(): Object; // use it
+  // getRawValue(): Object; // use it
   id: number;
   original_title: string;
   overview: string;
