@@ -1,15 +1,22 @@
 <div *ngIf="id">
     <div class="movie-info">
-        <!-- <img *ngIf="movie.isAddedByUser" class="movie-poster" src="{{movie.poster_path}}"> -->
-        <img *ngIf="!movie.isAddedByUser" class="movie-poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}">
-        <div class="movie-description">
-            <div class="title">{{movie.original_title || movie.name}}</div>
-            <div class="date">{{movie.release_date}}</div>
-            <div class="overview">{{movie.overview}}</div>
+        <img *ngIf="isAddedByUser" 
+        class="movie-info__poster" src="{{movie.poster_path}}">
+        <img *ngIf="!isAddedByUser"  
+        class="movie-info__poster" 
+        src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}">
+        <div class="movie-info__description">
+            <div class="description__title">{{movie.original_title || movie.name}}</div>
+            <div class="description__date">{{movie.release_date}}</div>
+            <div class="description__overview">{{movie.overview}}</div>
         </div>
     </div>
-    <input id="1" type="button" (click)="choose()" class="button button1" [value]="valueButton">
-    <div>
-        <p class="suggested">You may also like these movies :) </p>
-    </div>
+    <input id="1" 
+    type="button" 
+    (click)="choose()" 
+    class="movie-info__button" 
+    [value]="valueButton">
+    <!-- <div>
+        <p class="movie-info__suggested">You may also like these movies :) </p>
+    </div> -->
 </div>

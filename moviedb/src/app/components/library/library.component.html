@@ -1,12 +1,11 @@
 <div *ngIf="isLsEmpty; else LocalStorageIsEmpty">
-    <p class="suggested">Your library </p>
-    <div class="movies">
+    <p class="library-status">Your library </p>
+    <div class="library-movies">
         <div *ngFor="let movie of moviesFromLocalStorage">
             <movie-card [movie]="movie" (click)="getMovieInfo(movie.id)"></movie-card>
         </div>
     </div>
 </div>
-<!-- </div> -->
 <ng-template #LocalStorageIsEmpty>
-    <p class="suggested center">Your library is empty ... </p>
+    <p class="library-status">Your library is empty ... </p>
 </ng-template>

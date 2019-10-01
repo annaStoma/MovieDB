@@ -1,76 +1,74 @@
-    @import '../movie-list/movie-list.component.scss';
-    @import '../movie-card/movie-card.component.scss';
-    @import '../../constants.scss';
-    .movie-info {
-        display: flex;
-        justify-content: center;
-        margin-top: 5%;
-        .movie-poster {
-            width: 20%;
-            // height: auto;
-            height: 100%;
-            border: 10px solid $light-purple;
-            transition: 0.5s;
-            &:hover {
-                // width: 22%;
-                transition: 0.5s;
-                border: 10px solid $soft-purple;
-            }
-        }
-        .movie-description {
-            display: block;
-            width: 35%;
-            margin-left: 25px;
-            .title {
-                color: $light-purple;
-                font-size: 2em;
-                text-transform: uppercase;
-            }
-            .date {
-                color: $soft-purple;
-                font-size: 1em;
-            }
-            .overview {
-                margin-top: 20px;
-                color: $lilac;
-                font-size: 1.2em;
-            }
-        }
-    }
-    
-    .button {
-        position: relative;
-        left: 50%;
-        transform: translate(-50%, 0);
-        background: none;
-        border-radius: 50px;
-        color: $light-purple;
-        padding: 16px 32px;
-        text-align: center;
-        display: inline-block;
-        font-size: 16px;
-        margin-top: 15px;
-        transition-duration: 0.4s;
-        cursor: pointer;
-        outline: none;
-        text-transform: uppercase;
-        font-weight: bold;
-        width: 65%;
-    }
-    
-    .button1 {
-        background-color: $light-grey;
-        border: 2px solid $light-purple;
+@import '../../constants.scss';
+@import '../movie-list/movie-list.component.scss';
+@import '../movie-card/movie-card.component.scss';
+.movie-info {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    .movie-info__poster {
+        width: 20%;
+        // height: auto;
+        height: 100%;
+        border: 10px solid $light-purple;
+        transition: 0.5s;
         &:hover {
-            background-color: $light-purple;
-            color: $lilac;
+            // width: 22%;
+            transition: 0.5s;
+            border: 10px solid $soft-purple;
         }
     }
-    
-    .suggested {
-        margin-top: 15px;
-        text-align: center;
-        color: $lilac;
-        font-size: 1.2em;
-        text-transform: uppercase;
+    .movie-info__description {
+        display: block;
+        width: 35%;
+        margin-left: 25px;
+        .description__title {
+            color: $light-purple;
+            font-size: 2em;
+            text-transform: uppercase;
+        }
+        .description__date {
+            color: $soft-purple;
+            font-size: 1em;
+        }
+        .description__overview {
+            margin-top: 20px;
+            color: $lilac;
+            font-size: 1.2em;
+        }
     }
+}
+
+.movie-info__button {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: none;
+    border-radius: 50px;
+    color: $light-purple;
+    padding: 16px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 15px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 65%;
+    background-color: $light-grey;
+    border: 2px solid $light-purple;
+    &:hover {
+        background-color: $light-purple;
+        color: $lilac;
+    }
+}
+
+
+.movie-info__suggested {
+    margin-top: 15px;
+    text-align: center;
+    color: $lilac;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}

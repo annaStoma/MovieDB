@@ -1,5 +1,7 @@
-<div class="cards">
+<div class="movie-cards">
     <div *ngFor="let movie of movieList, let i=index">
-        <movie-card [movie]="movie" (click)="getMovieInfo(movie.id)" [id]="movie.id"></movie-card>
+        <movie-card [movie]="movie" 
+        (click)="getMovieInfo(movie.id)" 
+        [id]="movie.id"></movie-card>
     </div>
 </div>

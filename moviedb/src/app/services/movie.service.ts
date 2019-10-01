@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { links } from '../links';
+import { Movie } from '../models';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
 })
 export class MovieService {
 
-  public movieList: any[];
+  public movieList: Movie[];
   myMovies: any[] = [];
   public searchedMovieList: any[] = [];
   title: string;
@@ -16,9 +18,9 @@ export class MovieService {
   constructor(private httpClient: HttpClient) {
     this.movieList = [];
   }
-  getQueryMovie(query: string) {
+  getQueryMovie(query: string): Observable<Movie> {
     const url = `https://api.themoviedb.org/3${query}&api_key=${links.apikey + links.params}`;
-    return this.httpClient.get(url);
+    return this.httpClient.get<Movie>(url);
   }
 
   getPopularMovies() {

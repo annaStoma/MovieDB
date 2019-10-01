@@ -1,14 +1,17 @@
 @import '../../constants.scss';
-@import '../movie-info/movie-info.component.scss';
 
-.movies {
+.library-movies {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.center {
-    // height: 100%;
+.library-status {
+    margin-top: 15px;
+    text-align: center;
+    color: $lilac;
+    font-size: 1.2em;
+    text-transform: uppercase;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,10 +1,10 @@
 <div *ngIf="results; else noResults">
-    <div class="movies">
+    <div class="searched-movies">
         <div *ngFor="let movie of searchedMovie">
             <movie-card [movie]="movie"></movie-card>
         </div>
     </div>
 </div>
 <ng-template #noResults>
-    <p class="suggested center">No matches ... </p>
+    <p class="searched-movies-status">No matches ... </p>
 </ng-template>

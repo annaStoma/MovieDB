@@ -1,5 +1,5 @@
 @import '../../constants.scss';
-.error-page {
+.error {
     background-color: $lilac;
     text-align: center;
     margin: 0 auto;
@@ -11,17 +11,17 @@
     width: 60%;
     height: 80%;
     border-radius: 10px;
-    .oops {
+    .error__error-oops {
         font-size: 4rem;
         color: $light-purple;
         font-style: italic;
         margin: 0;
         padding: 0;
     }
-    .text {
+    .error__error-text {
         color: $dark-grey;
     }
-    img {
+    .error__error-img {
         width: 30%;
         margin: 0 auto;
     }

@@ -1,13 +1,12 @@
 @import '../../constants.scss';
-.block {
-    // width: 100%;
+.header-nav {
     height: 100px;
     background-color: $light-grey;
     text-transform: uppercase;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    a {
+    .header-nav__header-nav-links a{
         font-size: 20px;
         text-decoration: none;
         margin-left: 20px;

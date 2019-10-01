@@ -1,2 +1,19 @@
 @import '../../constants.scss';
 @import '../library/library.component.scss';
+
+.searched-movies {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.searched-movies-status {
+  margin-top: 15px;
+  text-align: center;
+  color: $lilac;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,37 +1,26 @@
-<div [formGroup]="movie" class="form">
-  
-  <p>fill in all fields to add a movie</p>
+<div [formGroup]="movie" class="movie-form">
+    <p class="movie-form__title">fill in all fields to add a movie</p>
 
-        <input id="original_title"
-        type="text"
-        formControlName="original_title"
-        placeholder="Title"
-        required >
+    <input id="original_title" type="text" 
+    formControlName="original_title" placeholder="Title" 
+    class="movie-form__input" required>
 
-        <input id="overview"
-        type="text"
-        formControlName="overview"
-        placeholder="About movie"
-        required >
+    <input id="overview" type="text" 
+    formControlName="overview" placeholder="About movie" 
+    class="movie-form__input" required>
 
-        <input id="poster_path"
-        type="text"
-        formControlName="poster_path"
-        placeholder="Poster"
-        required >
-    
-        <input id="release_date"
-        type="date"
-        formControlName="release_date"
-        placeholder="Release date">
- 
-        <input id="vote_average"
-        type="text"
-        formControlName="vote_average"
-        placeholder="Votes"
-        required >
-    
-    <button type="submit" 
-    class="button button1"
+    <input id="poster_path" type="text" 
+    formControlName="poster_path" placeholder="Poster" 
+    class="movie-form__input" required>
+
+    <input id="release_date" type="date" 
+    formControlName="release_date" placeholder="Release date" 
+    class="movie-form__input">
+
+    <input id="vote_average" type="text" 
+    formControlName="vote_average" placeholder="Votes" 
+    class="movie-form__input" required>
+
+    <button type="submit" class="movie-form__button movie-form__button-hover" 
     (click)="onSubmit(movie.value)">Add movie:</button>
 </div>

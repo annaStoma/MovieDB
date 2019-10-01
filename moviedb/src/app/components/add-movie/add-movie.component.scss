@@ -1,6 +1,5 @@
-@import '../movie-info/movie-info.component.scss';
 @import '../../constants.scss';
-.form {
+.movie-form {
     width: 60%;
     height: 80%;
     background-color: $dark-grey;
@@ -14,10 +13,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    p {
+    .movie-form__title {
         text-align: center;
     }
-    input {
+    .movie-form__input {
         text-transform: uppercase;
         color: $lilac;
         margin-top: 30px;
@@ -34,7 +33,31 @@
             border-bottom: solid 2px $light-purple;
         }
     }
-    .button {
-        margin-top: 30px;
+    .movie-form__button {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background: none;
+        border-radius: 50px;
+        color: $light-purple;
+        padding: 16px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 15px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        outline: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 65%;
+    }
+    .movie-form__button-hover {
+        background-color: $light-grey;
+        border: 2px solid $light-purple;
+        &:hover {
+            background-color: $light-purple;
+            color: $lilac;
+        }
     }
 }

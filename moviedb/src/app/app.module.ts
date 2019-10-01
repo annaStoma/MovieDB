@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationComponent } from './navigation/navigation.component';
+import { SideNavComponent } from './sidenav/sidenav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,7 +17,7 @@ import { TvService } from './services/tv.service';
 import { LibraryComponent } from './components/library/library.component';
 import { SupportComponent } from './components/support/support.component';
 import { TvShowsListComponent } from './components/tv-shows-list/tv-shows-list.component';
-import { TopOfPageComponent } from './components/top-of-page/top-of-page.component';
+import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { SearchComponent } from './components/search/search.component';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { AboutComponent } from './components/about/about.component';
@@ -33,12 +33,12 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
+    SideNavComponent,
     MovieListComponent,
     LibraryComponent,
     SupportComponent,
     TvShowsListComponent,
-    TopOfPageComponent,
+    HeaderNavComponent,
     SearchComponent,
     AddMovieComponent,
     AboutComponent,

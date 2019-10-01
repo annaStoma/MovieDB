@@ -2,6 +2,7 @@ import { Component, Input, Output } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 
 import { Router } from '@angular/router';
+import { Movie } from 'src/app/models';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
