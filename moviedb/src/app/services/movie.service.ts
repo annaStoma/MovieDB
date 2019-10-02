@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { links } from '../links';
 import { Movie } from '../models';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: "root"
@@ -15,7 +16,7 @@ export class MovieService {
   title: string;
   value: string;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.movieList = [];
   }
   getQueryMovie(query: string): Observable<Movie> {
@@ -27,7 +28,10 @@ export class MovieService {
     this.getQueryMovie(links.popular)
       .subscribe((data: any) => {
         this.movieList = Object.assign(this.movieList, data.results, this.myMovies);
-      });
+        localStorage.setItem('films', JSON.stringify(this.movieList));
+      }
+        , error => { this.router.navigate(['/error']) }
+      );
   }
 
   search(value: string) {
@@ -46,7 +50,9 @@ export class MovieService {
   }
 
   addNewMovie(movie) {
-    this.myMovies.push(movie);
+    const movieList = JSON.parse(localStorage.getItem('films'));
+    movieList.push(movie);
+    this.movieList = movieList;
   }
 }
 

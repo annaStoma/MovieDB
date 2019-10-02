@@ -6,11 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tv-card.component.scss']
 })
 export class TvCardComponent implements OnInit {
-  @Input() public tv: any[] = []; // better to get rid of any
+  @Input() public tv: any[] = [];
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.tv);
+
   }
 
 }

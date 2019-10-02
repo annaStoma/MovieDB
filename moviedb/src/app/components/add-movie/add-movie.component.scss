@@ -33,6 +33,10 @@
             border-bottom: solid 2px $light-purple;
         }
     }
+    .movie-form__is-invalid {
+        border-bottom: solid 2px $red;
+        transition: 0.5s;
+    }
     .movie-form__button {
         position: relative;
         left: 50%;
@@ -59,5 +63,9 @@
             background-color: $light-purple;
             color: $lilac;
         }
+    }
+    .is-required {
+        font-size: 10px;
+        color: $red;
     }
 }

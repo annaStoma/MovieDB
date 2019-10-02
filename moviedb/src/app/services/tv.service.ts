@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { links } from '../links';
 import { Tv } from '../models';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: "root"
@@ -15,10 +16,9 @@ export class TvService {
   title: string;
   value: string;
 
-  constructor(private httpClient: HttpClient ) { 
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.tvList = [];
   }
-
 
   getQueryTv(query: string): Observable<Tv> {
     const url = `https://api.themoviedb.org/3${query}&api_key=${links.apikey + links.params}`;
@@ -27,9 +27,13 @@ export class TvService {
 
   getTVShows() {
     this.getQueryTv(links.tv)
-    .subscribe((data: any) => {
-      this.tvList = Object.assign(this.tvList, data.results, this.myMovies);
-    });
+      .subscribe((data: any) => {
+        this.tvList = Object.assign(this.tvList, data.results, this.myMovies);
+        localStorage.setItem('tv', JSON.stringify(this.tvList));
+      }
+        , error => { this.router.navigate(['/error']) }
+
+      );
   }
 
   search(value: string) {

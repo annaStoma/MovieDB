@@ -11,9 +11,10 @@ import { Alert } from 'selenium-webdriver';
 })
 export class SearchResultsComponent implements OnInit {
 
-  public query: string;
+  query: string;
   public searchedMovie = [];
-  results: boolean = true;
+  public results: boolean = true;
+
   constructor(private activateRoute: ActivatedRoute,
     private router: Router,
     private moviedb: MovieService,
@@ -25,12 +26,12 @@ export class SearchResultsComponent implements OnInit {
     this.getCurrUrl();
   }
 
-  getCurrUrl(){
-    if (this.router.url == `/movies/search/${this.query}`){
+  getCurrUrl() {
+    if (this.router.url == `/movies/search/${this.query}`) {
       this.moviedb.search(this.query);
       this.searchedMovie = this.moviedb.searchedMovieList;
     }
-    else if(this.router.url ==  `/tv/search/${this.query}`){
+    else if (this.router.url == `/tv/search/${this.query}`) {
       this.tvdb.search(this.query);
       this.searchedMovie = this.tvdb.searchedTvList;
     }

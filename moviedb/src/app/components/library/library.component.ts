@@ -9,7 +9,7 @@ export class LibraryComponent implements OnInit {
 
   public movie: {};
   moviesFromLocalStorage: any[] = [];
-  isLsEmpty: Boolean = true;
+  public isLsEmpty: Boolean = true;
 
   constructor(private router: Router) { }
 
@@ -17,19 +17,11 @@ export class LibraryComponent implements OnInit {
     this.getAllFromLocalStorage();
   }
 
-
   getAllFromLocalStorage() {
-    if (localStorage.length == 0) {
-      this.isLsEmpty = false;
-    }
-    else {
-      for (var i = 0; i <= localStorage.length - 1; i++) {
-        this.movie = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        this.moviesFromLocalStorage.push(this.movie);
-      }
-    }
+    const library = JSON.parse(localStorage.getItem('library'));
+    this.moviesFromLocalStorage = library;
   }
-
+  
   getMovieInfo(id: string) {
     let route;
     this.moviesFromLocalStorage.forEach(item => {
@@ -38,10 +30,6 @@ export class LibraryComponent implements OnInit {
       };
     });
     this.router.navigate([route, id]);
-    for (const index in this.moviesFromLocalStorage) {
-      if (this.moviesFromLocalStorage[index].id === id)
-        sessionStorage.setItem(this.moviesFromLocalStorage[index].id, JSON.stringify(this.moviesFromLocalStorage[index]));
-    }
   }
 
 }

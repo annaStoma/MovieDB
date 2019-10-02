@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TvService } from 'src/app/services/tv.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'tv-shows-list',
   templateUrl: './tv-shows-list.component.html',
@@ -11,6 +10,7 @@ import { Router } from '@angular/router';
 export class TvShowsListComponent {
 
   public tvList: any[] = [];
+
   constructor(private tvbd: TvService, private router: Router) {
 
   }
@@ -22,12 +22,8 @@ export class TvShowsListComponent {
     this.tvList = this.tvbd.tvList;
   }
 
-  getTvInfo(id: string) {
+  routeToTvInfo(id: string) {
     this.router.navigate(['/tv', id]);
-    for (const index in this.tvList) {
-      if (this.tvList[index].id === id)
-      sessionStorage.setItem(this.tvList[index].id, JSON.stringify(this.tvList[index]));
-    }
   }
 
 }

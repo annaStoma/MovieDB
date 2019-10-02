@@ -7,12 +7,10 @@
     margin-top: 5%;
     .movie-info__poster {
         width: 20%;
-        // height: auto;
         height: 100%;
         border: 10px solid $light-purple;
         transition: 0.5s;
         &:hover {
-            // width: 22%;
             transition: 0.5s;
             border: 10px solid $soft-purple;
         }
@@ -63,7 +61,6 @@
         color: $lilac;
     }
 }
-
 
 .movie-info__suggested {
     margin-top: 15px;

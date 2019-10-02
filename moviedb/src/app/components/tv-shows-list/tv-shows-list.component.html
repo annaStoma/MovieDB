@@ -1,5 +1,5 @@
 <div class="tv-cards">
     <div *ngFor="let tv of tvList">
-        <app-tv-card [tv]="tv" (click)="getTvInfo(tv.id)" [id]="tv.id"></app-tv-card>
+        <app-tv-card [tv]="tv" (click)="routeToTvInfo(tv.id)" [id]="tv.id"></app-tv-card>
     </div>
 </div>

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
 
-  searchValue: string = '';
+  public searchValue: string = '';
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -26,5 +26,5 @@ export class SearchComponent implements OnInit {
 
     this.searchValue = '';
   }
-
+  
 }
