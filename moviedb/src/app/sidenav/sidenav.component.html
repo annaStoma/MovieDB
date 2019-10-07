@@ -8,9 +8,13 @@
             <a mat-list-item routerLink="/support">Support</a>
         </mat-nav-list>
     </mat-sidenav>
-    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+  
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-    <app-header-nav> </app-header-nav>
-    <router-outlet></router-outlet>
+      <div id="scroll">
+        <app-header-nav> </app-header-nav>
+        <app-scroll-button></app-scroll-button>
+        <router-outlet></router-outlet>
+    </div>
 </mat-sidenav-container>

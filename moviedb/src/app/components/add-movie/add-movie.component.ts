@@ -11,8 +11,8 @@ import { Movie, NewMovie } from 'src/app/models';
 })
 export class AddMovieComponent implements OnInit {
   public movie: FormGroup;
-  movieObj: Object = {};
-  submitted = false;
+  public movieObj: Object = {};
+  public submitted: boolean = false;
 
 
   constructor(private fb: FormBuilder, private moviebd: MovieService) { }
@@ -24,24 +24,23 @@ export class AddMovieComponent implements OnInit {
       overview: ['', [Validators.required, Validators.maxLength(10)]],
       poster_path: ['', Validators.required],
       release_date: ['', Validators.required],
-      vote_average: ['', [Validators.required, Validators.min(0), Validators.max(10)]],
+      vote_average: ['', [Validators.required, Validators.min(0), Validators.max(10), Validators.pattern("^\\d{1,4}$")]],
       isAddedByUser: true
     });
   }
   get f() {
-     return this.movie.controls;
-     }
+    return this.movie.controls;
+  }
 
   onSubmit() {
     this.submitted = true;
     if (this.movie.invalid) {
-    return;
+      return;
     }
     else {
       this.movieObj = this.movie.getRawValue();
       const id = this.movie.getRawValue().id;
       this.moviebd.addNewMovie(this.movieObj);
-      alert('SUCCESS!! :-)')
     }
   }
 }

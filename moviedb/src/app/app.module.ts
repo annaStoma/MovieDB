@@ -28,6 +28,7 @@ import { TvInfoComponent } from './components/tv-info/tv-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './components/error/error.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { ScrollButtonComponent } from './components/scroll-button/scroll-button.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     TvCardComponent,
     TvInfoComponent,
     ErrorComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    ScrollButtonComponent
   ],
   imports: [
     BrowserModule,

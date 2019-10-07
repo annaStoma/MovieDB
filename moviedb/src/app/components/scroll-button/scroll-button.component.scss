@@ -1,0 +1,23 @@
+@import '../../constants.scss';
+
+.scroll-button {
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    bottom: 20px;
+    margin-left: 5px;
+    outline: none;
+    border: none;
+    border-radius: 100%;
+    background-color: $light-purple;
+    cursor: pointer;
+    &-icon {
+        width: 90%;
+        text-align: center;
+        transform: rotate(180deg);
+    }
+    &:hover {
+      border: 5px solid $lilac;
+      transition: 0.3s;
+  }
+}
