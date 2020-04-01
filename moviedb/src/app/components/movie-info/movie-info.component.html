@@ -1,10 +1,12 @@
 <div *ngIf="id">
     <div class="movie-info">
-        <img *ngIf="isAddedByUser" 
+        <img *ngIf="isAddedByUser; else notuser" 
         class="movie-info__poster" src="{{movie.poster_path}}">
-        <img *ngIf="!isAddedByUser"  
+        <ng-template #notuser>
+        <img  
         class="movie-info__poster" 
         src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}">
+    </ng-template>
         <div class="movie-info__description">
             <div class="description__title">{{movie.original_title || movie.name}}</div>
             <div class="description__date">{{movie.release_date}}</div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Movie } from 'src/app/models/movie.model';
 
 @Component({
   selector: 'movie-card',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class MovieCardComponent implements OnInit {
 
-  @Input() public movie: any[] = [];
+  @Input() public movie: Movie;
 
   constructor() { }
   ngOnInit(): void { }

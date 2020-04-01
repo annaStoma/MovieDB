@@ -14,7 +14,8 @@ export class MovieInfoComponent implements OnInit {
   valueButtonAdd: string = "add this movie to library";
   valueButtonRemove: string = "remove this movie from library";
   valueButton: string = this.valueButtonAdd;
-  isAdded: boolean = false;
+  public isAddedByUser: boolean = false;
+  public inLibrary: boolean = false;
   library: any[] = [];
   chanchedLibrary: any[] = [];
 
@@ -36,10 +37,17 @@ export class MovieInfoComponent implements OnInit {
   getMovie() {
     const films = JSON.parse(localStorage.getItem('films'));
     films.forEach(film => {
+
+
       if (film.id == this.id) {
         this.movie = film;
+        console.log(this.movie)
+        if (this.movie.hasOwnProperty('isAddedByUser')) this.isAddedByUser = !this.isAddedByUser;
+        else this.isAddedByUser = false;
+
       }
     });
+
   }
 
   removeFromLibrary() {
@@ -47,7 +55,7 @@ export class MovieInfoComponent implements OnInit {
     library.forEach((film, index) => {
       if (film.id == this.id) {
         this.chanchedLibrary = JSON.parse(localStorage.getItem('library'));
-        const removedItem = this.chanchedLibrary.splice(index, 1);
+        this.chanchedLibrary.splice(index, 1);
         localStorage.setItem('library', JSON.stringify(this.chanchedLibrary));
       }
     });
@@ -58,21 +66,27 @@ export class MovieInfoComponent implements OnInit {
     library.forEach(film => {
       if (film.id == this.id) {
         this.valueButton = this.valueButtonRemove;
-        this.isAdded = true;
+        // this.isAddedByUser = true;
       }
     });
   }
 
+
+
   choose() {
-    if (this.isAdded) {
+    if (!this.inLibrary) {
       this.removeFromLibrary();
       this.valueButton = this.valueButtonAdd;
-      this.isAdded = !this.isAdded;
+
+      this.inLibrary = !this.inLibrary;
+      console.log(this.valueButton)
+      // this.isAddedByUser = !this.isAddedByUser;
     }
-    else if (!this.isAdded) {
+    else if (this.inLibrary) {
+      console.log('remove')
       this.addToLibrary();
       this.valueButton = this.valueButtonRemove;
-      this.isAdded = !this.isAdded;
+      this.inLibrary = !this.inLibrary;
     }
   }
 }

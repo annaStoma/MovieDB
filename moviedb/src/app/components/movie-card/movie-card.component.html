@@ -1,10 +1,10 @@
 <div class="movie-card">
     <p class="movie-card__movie-card-name">{{movie.name || movie.original_title}}</p>
     <p class="movie-card__movie-card-rate"><span>Rate: </span>{{movie.vote_average}}</p>
-    <img *ngIf="movie.isAddedByUser" 
+    <img *ngIf="movie.isAddedByUser; else notuser" 
     class="movie-card__movie-card-poster"
     src="{{movie.poster_path}}">
-    <img  *ngIf="!movie.isAddedByUser" 
+    <ng-template #notuser> <img 
     class="movie-card__movie-card-poster"
-    src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}">
+    src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}"></ng-template>
 </div>

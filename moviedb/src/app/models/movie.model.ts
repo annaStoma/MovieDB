@@ -5,7 +5,7 @@ export interface NewMovie{
   poster_path: string;
   release_date: Date;
   vote_average: number;
-  isAddedByUser: boolean;
+  isAddedByUser?: boolean;
  }
 
  export interface Movie{
@@ -15,6 +15,7 @@ export interface NewMovie{
  id: number;
  original_language: string;
  original_title: string;
+ name?: string;
  overview: string;
  popularity: number;
  poster_path: string;
@@ -23,4 +24,5 @@ export interface NewMovie{
  video: boolean;
  vote_average: number;
  vote_count: number;
+ isAddedByUser?: boolean;
 }

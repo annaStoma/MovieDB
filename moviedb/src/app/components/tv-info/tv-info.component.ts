@@ -9,8 +9,8 @@ import { Tv } from 'src/app/models';
 })
 export class TvInfoComponent implements OnInit {
   
-  @Input() public id: string;
-  public tv: string;
+  @Input() public id: number;
+  public tv: Tv;
   valueButtonAdd: string = "add this movie to library";
   valueButtonRemove: string = "remove this movie from library";
   valueButton: string = this.valueButtonAdd;
