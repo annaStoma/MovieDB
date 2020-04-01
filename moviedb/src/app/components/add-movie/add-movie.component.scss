@@ -6,10 +6,9 @@
     background-color: $dark-grey;
     border-radius: 10px;
     padding: 0% 5%;
-    color: $lilac;
+    color: black;
     font-size: 20px;
     text-transform: uppercase;
-    color: $light-purple;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -19,7 +18,7 @@
     }
     &__input {
         text-transform: uppercase;
-        color: $lilac;
+        color: white;
         margin-top: 30px;
         box-sizing: border-box;
         letter-spacing: 1px;
@@ -31,7 +30,7 @@
         cursor: pointer;
         &:hover {
             transition: 0.5s;
-            border-bottom: solid 2px $light-purple;
+            border-bottom: solid 2px white;
         }
     }
     &__is-invalid {
@@ -58,10 +57,10 @@
         font-weight: bold;
         width: 65%;
         background-color: $light-grey;
-        border: 2px solid $light-purple;
+        border: none;
         &:hover {
-            background-color: $light-purple;
-            color: $lilac;
+            background-color: white;
+            color: black;
         }
      }
     }

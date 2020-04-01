@@ -2,22 +2,25 @@
 
 .scroll-button {
     position: fixed;
-    height: 40px;
-    width: 40px;
+    height: 32px;
+    width: 32px;
     bottom: 20px;
-    margin-left: 5px;
+    margin-left: 10px;
     outline: none;
     border: none;
     border-radius: 100%;
     background-color: $light-purple;
+    opacity: 0.5;
     cursor: pointer;
     &-icon {
-        width: 90%;
+        width: 80%;
         text-align: center;
         transform: rotate(180deg);
     }
     &:hover {
-      border: 5px solid $lilac;
+      opacity: 1;
+      // background-color: $light-purple;
+      // border: 5px solid $lilac;
       transition: 0.3s;
   }
 }

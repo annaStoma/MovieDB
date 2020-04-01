@@ -1,0 +1,18 @@
+@import '../../constants.scss';
+* {
+    color: $light-purple;
+   
+}
+
+div {
+    margin: auto;
+    width: 80%;
+    margin-top: 100px;
+    font-size: 20px;
+
+    a {
+      color: white;
+      cursor: pointer;
+    }
+  
+}

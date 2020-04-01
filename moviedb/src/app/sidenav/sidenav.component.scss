@@ -2,12 +2,21 @@
 .sidenav-container {
     height: 100%;
 }
+
 .sidenav {
     width: 200px;
 }
 
 .sidenav .mat-toolbar {
     background: inherit;
+    color: #000;
+    text-transform: uppercase;
+    border-bottom: 5px solid $line;
+
+    img{
+        width: 30px;
+        margin-left: 10px;
+    }
 }
 
 .mat-toolbar.mat-primary {
@@ -21,9 +30,11 @@
 }
 
 .mat-nav-list .mat-list-item {
-    color: $lilac;
+    color: black;
+    text-transform: lowercase;
+  
     &:hover {
-        transition: 0.3s;
+        transition: 0.2s;
         text-shadow: 0px 0px 10px $lilac;
     }
 }

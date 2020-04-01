@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-        <mat-toolbar>Logo</mat-toolbar>
+        <mat-toolbar>Filmoteka<img src="https://img.icons8.com/ios-filled/64/000000/3d-glasses.png"/></mat-toolbar>
         <mat-nav-list>
             <a mat-list-item routerLink="/movies">Movies</a>
             <a mat-list-item routerLink="/tv">TV Shows</a>
