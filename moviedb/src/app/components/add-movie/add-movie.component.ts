@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MovieService } from 'src/app/services/movie.service';
 import * as randId from 'uuid/v4';
-import { Movie, NewMovie } from 'src/app/models';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-movie',
@@ -11,11 +12,15 @@ import { Movie, NewMovie } from 'src/app/models';
 })
 export class AddMovieComponent implements OnInit {
   public movie: FormGroup;
-  public movieObj: Object = {};
-  public submitted: boolean = false;
+  public movieObj = {};
+  public submitted = false;
 
 
-  constructor(private fb: FormBuilder, private moviebd: MovieService) { }
+  constructor(private fb: FormBuilder,
+              private moviebd: MovieService,
+              private router: Router,
+              private snackBar: MatSnackBar) {
+  }
 
   ngOnInit() {
     this.movie = this.fb.group({
@@ -28,6 +33,7 @@ export class AddMovieComponent implements OnInit {
       isAddedByUser: true
     });
   }
+
   get f() {
     return this.movie.controls;
   }
@@ -36,11 +42,14 @@ export class AddMovieComponent implements OnInit {
     this.submitted = true;
     if (this.movie.invalid) {
       return;
-    }
-    else {
+    } else {
       this.movieObj = this.movie.getRawValue();
       const id = this.movie.getRawValue().id;
       this.moviebd.addNewMovie(this.movieObj);
     }
+    this.snackBar.open('Movie successfully uploaded', 'Success', {
+      duration: 3000,
+    });
+    this.router.navigate(['/movies']);
   }
 }

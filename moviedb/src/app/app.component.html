@@ -1,1 +1,35 @@
-<app-sidenav></app-sidenav>
+<app-sidenav *ngIf="isActive; else registration" [name]="name"></app-sidenav>
+
+<ng-template #registration>
+  <div class="reg-wrapper">
+    <mat-card-title class="title"> FILMOTEKA</mat-card-title>
+
+      <div class="movie-form reg-form">
+        <p class="movie-form__title">
+          <mat-card-title> Registration</mat-card-title>
+        </p>
+
+        <input id="original_title" type="text"
+          placeholder="Username"
+          class="movie-form__input" [(ngModel)]="name">
+
+        <input id="overview" type="text"
+          placeholder="Login"
+          class="movie-form__input">
+
+        <input id="poster_path" type="text"
+          placeholder="Password"
+          class="movie-form__input">
+
+        <button class="movie-form__button"
+          (click)="onSubmit()">Register
+        </button>
+
+        <div class="login-wrapper">
+          Or <span class="login">login</span> if you already have an account
+        </div>
+      </div>
+
+  </div>
+</ng-template>
+

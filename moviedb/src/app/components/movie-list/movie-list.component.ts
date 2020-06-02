@@ -1,23 +1,26 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/models';
+
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss']
 })
 
-export class MovieListComponent {
+export class MovieListComponent implements OnInit {
 
-  public movieList: any[] = []; 
-   constructor(private moviebd: MovieService, private router: Router) { }
+  public movieList: any[] = [];
 
-  ngOnInit() {
+  constructor(private moviebd: MovieService, private router: Router) {
+  }
+
+  ngOnInit(): void {
     this.loadPopularMovies();
   }
 
-  public loadPopularMovies() {
+  public loadPopularMovies(): void {
     this.moviebd.getPopularMovies();
     this.movieList = this.moviebd.movieList;
   }

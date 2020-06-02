@@ -1,0 +1,42 @@
+@import "constants";
+@import "components/add-movie/add-movie.component";
+
+.reg-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-color: $light-grey;
+  color: $lilac;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  .title{
+    font-size: 36px;
+    padding-bottom: 20px;
+  }
+  .reg-form{
+    width: 300px;
+  }
+}
+
+.login-wrapper {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  padding-bottom: 20px;
+
+  .login {
+    color: #868686;
+    cursor: pointer;
+
+    &:hover {
+      color: blueviolet;
+    }
+  }
+}
+
+

@@ -29,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './components/error/error.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { ScrollButtonComponent } from './components/scroll-button/scroll-button.component';
-
+import { MatCardModule } from '@angular/material/card';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,9 @@ import { ScrollButtonComponent } from './components/scroll-button/scroll-button.
     HttpClientModule,
     HttpClientJsonpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [MovieService, TvService],
   bootstrap: [AppComponent]

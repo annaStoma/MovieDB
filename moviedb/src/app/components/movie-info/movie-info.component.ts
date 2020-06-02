@@ -11,16 +11,17 @@ export class MovieInfoComponent implements OnInit {
 
   @Input() id: string;
   public movie: Movie;
-  valueButtonAdd: string = "add this movie to library";
-  valueButtonRemove: string = "remove this movie from library";
-  valueButton: string = this.valueButtonAdd;
-  public isAddedByUser: boolean = false;
-  public inLibrary: boolean = false;
+  valueButtonAdd = 'add this movie to library';
+  valueButtonRemove = 'remove this movie from library';
+  valueButton = this.valueButtonAdd;
+  public isAddedByUser = false;
+  public inLibrary = false;
   library: any[] = [];
   chanchedLibrary: any[] = [];
 
   constructor(private activateRoute: ActivatedRoute) {
-    this.id = activateRoute.snapshot.params['id'];
+    this.id = activateRoute.snapshot.params.id;
+
   }
 
   ngOnInit(): void {
@@ -36,15 +37,15 @@ export class MovieInfoComponent implements OnInit {
 
   getMovie() {
     const films = JSON.parse(localStorage.getItem('films'));
+
     films.forEach(film => {
-
-
       if (film.id == this.id) {
         this.movie = film;
-        console.log(this.movie)
-        if (this.movie.hasOwnProperty('isAddedByUser')) this.isAddedByUser = !this.isAddedByUser;
-        else this.isAddedByUser = false;
-
+        if (this.movie.hasOwnProperty('isAddedByUser')) {
+          this.isAddedByUser = !this.isAddedByUser;
+        } else {
+          this.isAddedByUser = false;
+        }
       }
     });
 
@@ -66,24 +67,20 @@ export class MovieInfoComponent implements OnInit {
     library.forEach(film => {
       if (film.id == this.id) {
         this.valueButton = this.valueButtonRemove;
+        this.inLibrary = true;
         // this.isAddedByUser = true;
       }
     });
   }
 
 
-
   choose() {
-    if (!this.inLibrary) {
+    if (this.inLibrary) {
       this.removeFromLibrary();
       this.valueButton = this.valueButtonAdd;
-
       this.inLibrary = !this.inLibrary;
-      console.log(this.valueButton)
-      // this.isAddedByUser = !this.isAddedByUser;
-    }
-    else if (this.inLibrary) {
-      console.log('remove')
+      return;
+    } else {
       this.addToLibrary();
       this.valueButton = this.valueButtonRemove;
       this.inLibrary = !this.inLibrary;

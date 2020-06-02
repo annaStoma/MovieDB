@@ -38,8 +38,10 @@ export class TvInfoComponent implements OnInit {
     tv.forEach(tv => {
       if (tv.id == this.id) {
         this.tv = tv;
+         console.log(this.tv)
       }
     });
+   
   }
 
   removeFromLibrary() {

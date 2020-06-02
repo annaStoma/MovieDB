@@ -1,57 +1,66 @@
 @import '../constants.scss';
+
 .sidenav-container {
-    height: 100%;
+  height: 100%;
 }
 
 .sidenav {
-    width: 200px;
+  width: 200px;
+}
+
+.username {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sidenav .mat-toolbar {
-    background: inherit;
-    color: #000;
-    text-transform: uppercase;
-    border-bottom: 5px solid $line;
+  background: inherit;
+  color: #000;
+  text-transform: uppercase;
+  border-bottom: 5px solid $line;
+  display: flex;
+  flex-wrap: wrap;
 
-    img{
-        width: 30px;
-        margin-left: 10px;
-    }
+  img {
+    width: 30px;
+    margin-left: 10px;
+  }
 }
 
 .mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 1;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .mat-drawer {
-    background-color: $dark-grey;
+  background-color: $dark-grey;
 }
 
 .mat-nav-list .mat-list-item {
-    color: black;
-    text-transform: lowercase;
-  
-    &:hover {
-        transition: 0.2s;
-        text-shadow: 0px 0px 10px $lilac;
-    }
+  color: black;
+  text-transform: lowercase;
+
+  &:hover {
+    transition: 0.2s;
+    text-shadow: 0px 0px 10px $lilac;
+  }
 }
 
 .mat-toolbar-row,
 .mat-toolbar-single-row {
-    color: $lilac;
+  color: $lilac;
 }
 
 .mat-drawer-container {
-    background: none;
+  background: none;
 }
 
 .mat-drawer-container {
-    background: $light-grey;
+  background: $light-grey;
 }
 
-.mat-icon{
-    color: $light-purple !important;
+.mat-icon {
+  color: $light-purple !important;
 }
