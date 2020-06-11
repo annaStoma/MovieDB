@@ -1,39 +1,39 @@
 <div [formGroup]="movie" class="movie-form">
     <p class="movie-form__title">fill in all fields to add a movie</p>
 
-    <input id="original_title" type="text" 
-    formControlName="original_title" placeholder="Title" 
-    class="movie-form__input" 
+    <input id="original_title" type="text"  autocomplete="off"
+    formControlName="original_title" placeholder="Title"
+    class="movie-form__input"
     [ngClass]="{ 'movie-form__is-invalid': submitted && f.original_title.errors }" >
     <div *ngIf="submitted && f.original_title.errors">
     <div  class="is-required" *ngIf="f.original_title.errors.required">Title Name is required</div></div>
 
-    <input id="overview" type="text" 
-    formControlName="overview" placeholder="About movie" 
+    <input id="overview" type="text" autocomplete="off"
+    formControlName="overview" placeholder="About movie"
     class="movie-form__input"  [ngClass]="{ 'movie-form__is-invalid': submitted && f.overview.errors }" >
     <div *ngIf="submitted && f.overview.errors">
     <div class="is-required"  *ngIf="f.overview.errors.required">Overview is required</div></div>
 
 
-    <input id="poster_path" type="text" 
-    formControlName="poster_path" placeholder="Poster" 
+    <input id="poster_path" type="text" autocomplete="off"
+    formControlName="poster_path" placeholder="Poster"
     class="movie-form__input"  [ngClass]="{ 'movie-form__is-invalid': submitted && f.poster_path.errors }" >
     <div *ngIf="submitted && f.poster_path.errors">
     <div  class="is-required" *ngIf="f.poster_path.errors.required">Poster is required</div></div>
 
 
-    <input id="release_date" type="date" 
-    formControlName="release_date" placeholder="Release date" 
+    <input id="release_date" type="date" autocomplete="off"
+    formControlName="release_date" placeholder="Release date"
     class="movie-form__input"  [ngClass]="{ 'movie-form__is-invalid': submitted && f.release_date.errors }" >
     <div *ngIf="submitted && f.release_date.errors">
     <div  class="is-required" *ngIf="f.release_date.errors.required">Release date is required</div></div>
 
-    <input id="vote_average" type="text" 
-    formControlName="vote_average" placeholder="Votes (1 - 10)" 
+    <input id="vote_average" type="text" autocomplete="off"
+    formControlName="vote_average" placeholder="Votes (1 - 10)"
     class="movie-form__input"  [ngClass]="{ 'movie-form__is-invalid': submitted && f.vote_average.errors }" >
     <div *ngIf="submitted && f.vote_average.errors">
     <div  class="is-required" *ngIf="f.vote_average.errors.required">Vote is required</div></div>
 
-    <button type="submit" class="movie-form__button" 
+    <button type="submit" class="movie-form__button"
     (click)="onSubmit()">Add movie:</button>
 </div>
